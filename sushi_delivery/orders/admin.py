@@ -17,7 +17,7 @@ class orderadmin(admin.ModelAdmin):
 
 class itemadmin(admin.ModelAdmin):
   list_display = ('order','dish','quantity' )
-  list_filter = ('order','dish','quantity'  )
+  search_fields = ('order','dish','quantity'  )
 
 admin.site.register(Client,clientadmin)
 admin.site.register(Dish,dishadmin)
