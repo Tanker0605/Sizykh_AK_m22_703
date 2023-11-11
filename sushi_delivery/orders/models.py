@@ -15,6 +15,7 @@ class Client(models.Model):
         verbose_name_plural = 'Клиенты'
         verbose_name = 'Клиент'
         ordering = ['last_name']
+        
 
 
 class Dish(models.Model):
