@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+
+    <title>Sushi Delivery</title>
+</head>
+<body>
+    <h1 align="center">Заказы доставки ресторана суши</h1>
+    <table width="80%">
+        <tr>
+            <th align="center">Заказ</th>
+            <th align="center">Дата и время</th>
+            <th align="center">Клиент</th>
+            <th align="center">Состав заказа</th>
+        </tr>
+        {% for order in orders %}
+        <tr>
+            <td align="center">{{ order }}</td>
+            <td align="center">{{ order.date_time }}</td>
+            <td align="center">{{ order.client }}</td>
+            <td align="center">
+                <ul>
+                    {% for item in order.orderitem_set.all %}
+                    <li>{{ item.dish }} - {{ item.dish.price }} руб., {{ item.quantity }} шт. </li>
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
